@@ -40,3 +40,4 @@ Note: The character * has a special meaning when passed as a command line argume
 Double quoting works for some systems (not for all): E.g. > `java Calc 1.5 2 + 3 4 - "*"`
 
 Work in teams of two!
+See the PS homepage for Team/Packaging instructions!
