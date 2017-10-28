@@ -1,24 +1,33 @@
 package averkova_ebner;
 
-import java.util.LinkedList;
-
 public class LinkedListStack<E> implements Stack<E> {
-	private LinkedList<E> linkedList = new LinkedList<>();
+	private Node<E> first;
 
 	@Override
 	public boolean empty() {
-		return linkedList.isEmpty();
+		return first == null;
 	}
 
 	@Override
 	public void push(E item) {
-		linkedList.add(item);
+		if(empty())
+		{
+			first = new Node<>(item);
+		}
+		else
+		{
+			Node<E> next = first;
+			first = new Node<> (item);
+			first.next = next;
+		}
 	}
 
 	@Override
 	public E pop() {
 		if (!empty()) {
-			return linkedList.removeFirst();
+			Node<E> item = first;
+			first = first.next;
+			return (E) item.data;
 		} else {
 			throw new RuntimeException("Don't use the 'pop' operator on an empty stack!");
 		}

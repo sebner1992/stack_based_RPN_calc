@@ -1,8 +1,8 @@
 package averkova_ebner;
 
 public class ArrayStack<E> implements Stack<E> {
-	private E[] array;
-	private int counter;
+	private E[] array = null;
+	private int counter = 0;
 
 	public ArrayStack(int size) {
 		array = (E[]) new Object[size];
@@ -15,8 +15,7 @@ public class ArrayStack<E> implements Stack<E> {
 
 	@Override
 	public void push(E item) {
-		array[counter] = item;
-		counter++;
+		array[counter++] = item;
 	}
 
 	@Override
