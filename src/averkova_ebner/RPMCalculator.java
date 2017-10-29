@@ -6,17 +6,14 @@ import assignment3_int.Calculator;
 
 public class RPMCalculator implements Calculator {
 
-	private Stack<Double> myStack;
+	private static Stack<Double> myStack;
 
 	public static void main(String[] args) {
-		Calculator arrayCalculator = new RPMCalculator(new ArrayStack<Double>(7));
+		Calculator arrayCalculator = new RPMCalculator(new ArrayStack<Double>(args.length));
 		Calculator linkedListCalculator = new RPMCalculator(new LinkedListStack<Double>());
-		
-		String[] input = {"1.5", "2", "+", "3", "4", "-", "*"};
-		
-		System.out.println("array result: " + arrayCalculator.calc(input));
-		System.out.println("linked list result: " + linkedListCalculator.calc(input));
-	
+
+		System.out.println("array result: " + arrayCalculator.calc(args));
+		System.out.println("linked list result: " + linkedListCalculator.calc(args));
 	}
 
 	public RPMCalculator(Stack<Double> stack) {
@@ -25,19 +22,23 @@ public class RPMCalculator implements Calculator {
 
 	@Override
 	public double calc(String[] input) {
-		for (String statement : input) {
-			parseInput(statement);
-		}
+		if (input != null) {
+			for (int i = 0; i < input.length; i++) {
+				parseInput(input[i]);
+			}
 
-		return myStack.pop();
+			return myStack.pop();
+		} else {
+			throw new RuntimeException("Empty input!");
+		}
 	}
 
 	private void parseInput(String s) {
 		if (s.charAt(0) >= '0' && s.charAt(0) <= '9') {
 			myStack.push(Double.parseDouble(s));
 		} else {
-			Double firstNumber = myStack.pop();
 			Double secondNumber = myStack.pop();
+			Double firstNumber = myStack.pop();
 			Double result;
 
 			switch (s) {
