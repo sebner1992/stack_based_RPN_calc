@@ -1,0 +1,9 @@
+Tests with LinkedList:3
+ Passed:3
+ Failed:0
+ 
+Tests with ArrayStack:3
+ Passed:0
+ Failed:3
+
+ 

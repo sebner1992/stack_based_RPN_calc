@@ -1,0 +1,16 @@
+No parameterless constructor for implementator class, added one by hand.
+
+ArrayStack:
+No check for index out of bounds when pushing on a full stack. (-1)
+
+Wrong emptiness check , must be counter==0, not array==null. (-1)
+
+Class ArrayStack implements a FIFO queue, not a stack. (-1)
+
+
+LinkedListStack:
+Linked-list stack should have a capacity, otherwise it may be driven to fill the entire heap.
+
+Avoid using the same name for variables of different types: item of type E in push and item of type Node<E> in pop
+
+##Grade: 4
